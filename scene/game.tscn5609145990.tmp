@@ -1,0 +1,327 @@
+[gd_scene format=3 uid="uid://bxnrlrk8rmcpj"]
+
+[ext_resource type="Texture2D" uid="uid://doghmovcgeltw" path="res://graphics/map.png" id="1_dbls1"]
+[ext_resource type="Script" uid="uid://lmmb43nqrjda" path="res://scripts/game.gd" id="1_xwcet"]
+[ext_resource type="PackedScene" uid="uid://wi4capk88643" path="res://scene/player.tscn" id="2_33cqm"]
+[ext_resource type="PackedScene" uid="uid://e1nbuerpmk0f" path="res://scene/tree.tscn" id="3_33cqm"]
+[ext_resource type="PackedScene" uid="uid://b0v5lt546jhdj" path="res://scene/wall.tscn" id="5_p1ry8"]
+[ext_resource type="PackedScene" uid="uid://dkhgo5yed88r2" path="res://scene/house.tscn" id="6_xlg7c"]
+[ext_resource type="Texture2D" uid="uid://cfe22lwgaf1k2" path="res://graphics/objects/traffic.png" id="8_17rxn"]
+[ext_resource type="FontFile" uid="uid://hqpa84d2dqvp" path="res://fonts/Better VCR 9.0.1.ttf" id="9_17rxn"]
+[ext_resource type="Texture2D" uid="uid://58kopy31xbf8" path="res://graphics/objects/taxi.png" id="9_yq8tf"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i84hf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i84hf"]
+size = Vector2(389, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7ynm"]
+size = Vector2(16, 666)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i84hf"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84q5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_20t61"]
+size = Vector2(382, 65)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i84hf"]
+font = ExtResource("9_17rxn")
+font_size = 25
+
+[node name="Game" type="Node2D" unique_id=1815515919]
+script = ExtResource("1_xwcet")
+
+[node name="Map" type="Sprite2D" parent="." unique_id=452657711]
+texture = ExtResource("1_dbls1")
+metadata/_edit_lock_ = true
+
+[node name="Border" type="Node2D" parent="." unique_id=2015945531]
+position = Vector2(-4, 0)
+metadata/_edit_lock_ = true
+
+[node name="BottomBorder" type="StaticBody2D" parent="Border" unique_id=646774584]
+collision_layer = 8
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_i84hf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border/BottomBorder" unique_id=904426018]
+position = Vector2(1, 326)
+shape = SubResource("RectangleShape2D_i84hf")
+
+[node name="TopBorder" type="StaticBody2D" parent="Border" unique_id=825630028]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/TopBorder" unique_id=804396200]
+position = Vector2(0, -326)
+shape = SubResource("RectangleShape2D_i84hf")
+
+[node name="RightBoder" type="StaticBody2D" parent="Border" unique_id=1554775829]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/RightBoder" unique_id=1879649513]
+position = Vector2(199, 2)
+shape = SubResource("RectangleShape2D_j7ynm")
+
+[node name="LeftBoder" type="StaticBody2D" parent="Border" unique_id=1563743195]
+position = Vector2(4, 1)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/LeftBoder" unique_id=1342115474]
+position = Vector2(-200, 4)
+shape = SubResource("RectangleShape2D_j7ynm")
+
+[node name="Objects" type="Node2D" parent="." unique_id=871455938]
+y_sort_enabled = true
+
+[node name="CarSpawn" type="Timer" parent="Objects" unique_id=995098159]
+wait_time = 0.205
+autostart = true
+
+[node name="Player" parent="Objects" unique_id=107993153 instance=ExtResource("2_33cqm")]
+position = Vector2(-95, 295)
+
+[node name="Trees" type="Node" parent="Objects" unique_id=1996210431]
+
+[node name="Tree" parent="Objects/Trees" unique_id=1052121783 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(58, 59)
+
+[node name="Tree3" parent="Objects/Trees" unique_id=1648980752 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-10, 16)
+
+[node name="Tree6" parent="Objects/Trees" unique_id=336946389 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-137, 59)
+
+[node name="Tree7" parent="Objects/Trees" unique_id=2026746350 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-54, 57)
+
+[node name="Tree8" parent="Objects/Trees" unique_id=395449126 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-10, 57)
+
+[node name="Tree13" parent="Objects/Trees" unique_id=683330225 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-65, 217)
+
+[node name="Tree14" parent="Objects/Trees" unique_id=953680283 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-65, 238)
+
+[node name="Tree15" parent="Objects/Trees" unique_id=1234283120 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-65, 259)
+
+[node name="Tree16" parent="Objects/Trees" unique_id=1004469518 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-65, 281)
+
+[node name="Tree17" parent="Objects/Trees" unique_id=607930214 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-64, 298)
+
+[node name="Tree18" parent="Objects/Trees" unique_id=1273855433 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-143, 217)
+
+[node name="Tree19" parent="Objects/Trees" unique_id=1817317070 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-143, 238)
+
+[node name="Tree20" parent="Objects/Trees" unique_id=1867078264 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-143, 259)
+
+[node name="Tree21" parent="Objects/Trees" unique_id=1982964422 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-143, 281)
+
+[node name="Tree22" parent="Objects/Trees" unique_id=752831474 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-142, 298)
+
+[node name="Tree2" parent="Objects/Trees" unique_id=1864113423 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(74, 59)
+
+[node name="Tree4" parent="Objects/Trees" unique_id=1963449819 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(56, 11)
+
+[node name="Tree5" parent="Objects/Trees" unique_id=1230788114 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(84, 10)
+
+[node name="Tree9" parent="Objects/Trees" unique_id=750014792 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-77, -245)
+
+[node name="Tree10" parent="Objects/Trees" unique_id=541788391 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(-61, -245)
+
+[node name="Tree11" parent="Objects/Trees" unique_id=1960370463 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(89, -245)
+
+[node name="Tree12" parent="Objects/Trees" unique_id=1487298410 instance=ExtResource("3_33cqm")]
+y_sort_enabled = true
+position = Vector2(105, -245)
+
+[node name="Wall" type="Node2D" parent="Objects" unique_id=374927540]
+
+[node name="Wall" parent="Objects/Wall" unique_id=476013850 instance=ExtResource("5_p1ry8")]
+position = Vector2(-182, 18)
+
+[node name="Wall2" parent="Objects/Wall" unique_id=732702912 instance=ExtResource("5_p1ry8")]
+position = Vector2(-151, 18)
+
+[node name="Wall3" parent="Objects/Wall" unique_id=343615256 instance=ExtResource("5_p1ry8")]
+position = Vector2(-167, 18)
+
+[node name="Wall4" parent="Objects/Wall" unique_id=2112785299 instance=ExtResource("5_p1ry8")]
+position = Vector2(-135, 18)
+
+[node name="Wall5" parent="Objects/Wall" unique_id=163766605 instance=ExtResource("5_p1ry8")]
+position = Vector2(-104, 18)
+
+[node name="Wall6" parent="Objects/Wall" unique_id=336086989 instance=ExtResource("5_p1ry8")]
+position = Vector2(-120, 18)
+
+[node name="Wall7" parent="Objects/Wall" unique_id=1284307565 instance=ExtResource("5_p1ry8")]
+position = Vector2(-88, 18)
+
+[node name="Wall8" parent="Objects/Wall" unique_id=1939723213 instance=ExtResource("5_p1ry8")]
+position = Vector2(-57, 18)
+
+[node name="Wall9" parent="Objects/Wall" unique_id=96769878 instance=ExtResource("5_p1ry8")]
+position = Vector2(-73, 18)
+
+[node name="Wall13" parent="Objects/Wall" unique_id=1214782325 instance=ExtResource("5_p1ry8")]
+position = Vector2(99, 19)
+
+[node name="Wall14" parent="Objects/Wall" unique_id=56860542 instance=ExtResource("5_p1ry8")]
+position = Vector2(130, 19)
+
+[node name="Wall15" parent="Objects/Wall" unique_id=380654942 instance=ExtResource("5_p1ry8")]
+position = Vector2(114, 19)
+
+[node name="Wall16" parent="Objects/Wall" unique_id=2024690642 instance=ExtResource("5_p1ry8")]
+position = Vector2(146, 19)
+
+[node name="Wall17" parent="Objects/Wall" unique_id=318962927 instance=ExtResource("5_p1ry8")]
+position = Vector2(177, 19)
+
+[node name="Wall18" parent="Objects/Wall" unique_id=1352420168 instance=ExtResource("5_p1ry8")]
+position = Vector2(161, 19)
+
+[node name="Wall10" parent="Objects/Wall" unique_id=1130594813 instance=ExtResource("5_p1ry8")]
+position = Vector2(-181, 66)
+
+[node name="Wall11" parent="Objects/Wall" unique_id=286489478 instance=ExtResource("5_p1ry8")]
+position = Vector2(-150, 66)
+
+[node name="Wall12" parent="Objects/Wall" unique_id=1082106837 instance=ExtResource("5_p1ry8")]
+position = Vector2(-166, 66)
+
+[node name="House" type="Node2D" parent="Objects" unique_id=376302614]
+y_sort_enabled = true
+
+[node name="House" parent="Objects/House" unique_id=610987767 instance=ExtResource("6_xlg7c")]
+position = Vector2(-137, -237)
+
+[node name="Light" type="Node2D" parent="Objects" unique_id=1175171587]
+y_sort_enabled = true
+
+[node name="Traffic" type="StaticBody2D" parent="Objects/Light" unique_id=711723197]
+metadata/_edit_group_ = true
+
+[node name="Traffic" type="Sprite2D" parent="Objects/Light/Traffic" unique_id=1592356484]
+position = Vector2(-28, -82)
+texture = ExtResource("8_17rxn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Light/Traffic" unique_id=641434400]
+position = Vector2(-24, -74)
+shape = SubResource("CapsuleShape2D_i84hf")
+
+[node name="Stuff" type="Node2D" parent="Objects" unique_id=1237378094]
+
+[node name="Taxi" type="StaticBody2D" parent="Objects/Stuff" unique_id=751749114]
+y_sort_enabled = true
+position = Vector2(-1, 0)
+metadata/_edit_group_ = true
+
+[node name="Taxi" type="Sprite2D" parent="Objects/Stuff/Taxi" unique_id=1300520468]
+position = Vector2(-112, 63.25)
+scale = Vector2(1.25, 1.1666666)
+texture = ExtResource("9_yq8tf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Stuff/Taxi" unique_id=767546087]
+position = Vector2(-112, 63)
+shape = SubResource("RectangleShape2D_84q5e")
+
+[node name="FinishArea" type="Area2D" parent="." unique_id=892090709]
+position = Vector2(-1, -176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea" unique_id=1104522581]
+position = Vector2(1, 14.5)
+shape = SubResource("RectangleShape2D_20t61")
+
+[node name="CarsMarker" type="Node2D" parent="." unique_id=352651218]
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="CarsMarker" unique_id=479202912]
+position = Vector2(198, 165)
+
+[node name="Marker2D9" type="Marker2D" parent="CarsMarker" unique_id=684635069]
+position = Vector2(199, 115)
+
+[node name="Marker2D2" type="Marker2D" parent="CarsMarker" unique_id=752240079]
+position = Vector2(-198, 142)
+
+[node name="Marker2D4" type="Marker2D" parent="CarsMarker" unique_id=1591830988]
+position = Vector2(-198, 92)
+
+[node name="Marker2D3" type="Marker2D" parent="CarsMarker" unique_id=1502535529]
+position = Vector2(-202, 5)
+
+[node name="Marker2D5" type="Marker2D" parent="CarsMarker" unique_id=1236947433]
+position = Vector2(200, -22)
+
+[node name="Marker2D6" type="Marker2D" parent="CarsMarker" unique_id=56428876]
+position = Vector2(-200, -48)
+
+[node name="Marker2D7" type="Marker2D" parent="CarsMarker" unique_id=122445749]
+position = Vector2(197, -89)
+
+[node name="Marker2D8" type="Marker2D" parent="CarsMarker" unique_id=544470434]
+position = Vector2(197, -112)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1609272432]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1731632754]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.054
+anchor_right = 0.5
+anchor_bottom = 0.054
+offset_left = -50.0
+offset_top = -14.880001
+offset_right = 52.0
+offset_bottom = 18.119999
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_i84hf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Objects/CarSpawn" to="." method="_on_car_spawn_timeout"]
+[connection signal="body_entered" from="FinishArea" to="." method="_on_area_2d_body_entered"]
