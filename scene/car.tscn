@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b72b6pqe72w3n" path="res://audio/car.mp3" id="5_xma8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i84hf"]
-size = Vector2(21, 10)
+size = Vector2(21, 8)
 
 [node name="Car" type="Area2D" unique_id=698457043]
 collision_layer = 4
@@ -15,7 +15,7 @@ collision_mask = 2
 script = ExtResource("1_tphm3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=848899545]
-position = Vector2(0.5, 2)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_i84hf")
 debug_color = Color(0.9331134, 2.4546684e-05, 0.648037, 0.41960785)
 
